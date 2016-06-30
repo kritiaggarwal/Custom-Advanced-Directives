@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Assign 1</title>
+	<!-- Create a Custom Directive that should be displayed as it is in a div when we write something in an input box. -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script type="text/javascript">
+		var mod=angular.module("myapp",[]);
+		mod.controller("con",function($scope){
+			$scope.name= "Kriti Aggarwal";
+
+		})
+
+		mod.directive("ngDir",function(){
+			return{
+				template : '<div class="panel-body"> Name : {{ name }} </div>',
+				restrict : 'A',
+				replace : 'false'
+			}
+		});
+		
+
+	</script>
+</head>
+<body ng-app="myapp">
+	<div ng-controller="con">
+		Name : <input type="text" placeholder=" Enter your Name " ng-model="name"> </input>
+		<br> <br>
+		The value of <div ng-dir></div>
+	</div>
+
+</body>
+</html>
